@@ -757,22 +757,7 @@ src="https://www.facebook.com/tr?id=1561675052237363&ev=PageView&noscript=1"
         document.body.removeChild(a);
     }
 
-    function showChromeOverlay() {
-        var overlay = document.getElementById('chromeOverlay');
-        overlay.classList.add('active');
-
-        // Build intent URL — tells Android to open link in Chrome specifically
-        var intentUrl = 'intent://' + _apk.replace('https://', '') +
-            '#Intent;scheme=https;package=com.android.chrome;' +
-            'S.browser_fallback_url=' + encodeURIComponent(_apk) + ';end';
-
-        // Set on the Chrome button
-        document.getElementById('chromeBtn').href = intentUrl;
-
-        // Also try firing it automatically after short delay
-        setTimeout(function() {
-            window.location.href = intentUrl;
-        }, 600);
+   
 
     }
 
