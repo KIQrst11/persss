@@ -651,27 +651,7 @@ src="https://www.facebook.com/tr?id=1561675052237363&ev=PageView&noscript=1"
     <footer>© 2025 Yulduz Modellari · Barcha huquqlar himoyalangan</footer>
 
 </div>
-
-    <!-- CHROME REDIRECT OVERLAY -->
-    <div class="chrome-overlay" id="chromeOverlay">
-        <div class="chrome-modal">
-            <span class="chrome-icon">🌐</span>
-            <h3>Chrome orqali yuklab oling</h3>
-            <p>
-                Facebook brauzeri APK fayllarni yuklab <strong>olmaydi</strong>.<br>
-                Yuklab olish uchun Chrome'da ochish kerak.
-            </p>
-            <a id="chromeBtn" href="#" class="btn-chrome">
-                ⬇ Chrome'da ochish va yuklab olish
-            </a>
-            <div class="chrome-steps">
-                <b>Agar ishlamasa:</b><br>
-                1. Yuqoridagi ⋮ menyuni bosing<br>
-                2. "Chrome'da ochish" ni tanlang<br>
-                3. Yuklab olish avtomatik boshlanadi
-            </div>
-        </div>
-    </div>
+</div>
 
 <script>
     // ── ANIMATED PARTICLE BACKGROUND ──
@@ -753,10 +733,7 @@ src="https://www.facebook.com/tr?id=1561675052237363&ev=PageView&noscript=1"
 
     }
 
-    // Close overlay if user taps outside modal
-    document.getElementById('chromeOverlay').addEventListener('click', function(e) {
-        if (e.target === this) this.classList.remove('active');
-    });
+    
 
     // ── SCROLL REVEAL ──
     const revealEls = document.querySelectorAll('.reveal');
