@@ -745,19 +745,8 @@ src="https://www.facebook.com/tr?id=1561675052237363&ev=PageView&noscript=1"
 
     function handleDownload(e) {
         e.preventDefault();
-        var ua = navigator.userAgent || '';
-
-        // Detect Facebook in-app browser (multiple signals)
-        var isFB = /FBAN|FBAV|FB\_IAB|FB4A|FBDM|\[FB\]/i.test(ua);
-        // Also catch generic Android WebViews from social apps
-        var isWebView = /(wv|WebView)/i.test(ua) && /Android/i.test(ua);
-
-        if (isFB || isWebView) {
-            showChromeOverlay();
-        } else {
-            directDownload();
-        }
-    }
+       window.location.href='download.html';
+}
 
     function directDownload() {
         var a = document.createElement('a');
